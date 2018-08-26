@@ -9,6 +9,6 @@
 #define ERROR 4
 
 
-void PerformFirstScan(char *fileName);
+void FirstScan();
 
 #endif

@@ -1,4 +1,4 @@
-#include "FirstScan.h"
+#include "FirstPhase.h"
 #include "DataStructures.h"
 #include "Shared.h"
 
@@ -350,10 +350,9 @@ void ProcessCommand(char *arr, int firstIndex, char *commandName) {
 /*
  * This function will perform the first scan of the input file and update the appropriate DS in the process
  */
-void PerformFirstScan(char *fileName) {
+void FirstScan() {
     int i;
     char labelString[LINE_SIZE];
-    file = OpenFile(fileName, READ_MODE);
     Read(file);
     /*scan the whole file*/
     while(file->buffer[0] != NULL_CHAR) {

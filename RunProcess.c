@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include "DataStructures.h"
-#include "FirstScan.h"
+#include "FirstPhase.h"
 #include "SecondScan.h"
+#include "Shared.h"
+#include "File.h"
 
 
 int main(int argc, char *argv[]) {
@@ -12,7 +14,9 @@ int main(int argc, char *argv[]) {
 
     /*perform both the assembly runs one after another for each of the files supplied by the user*/
     for (i = 1; i < argc; i++) {
-        PerformFirstScan(argv[i]);
+        file = OpenFile(argv[i], READ_MODE);
+        FirstScan();
+       /* PerformFirstScan(argv[i]);*/
         /*if there errors in the first scan there no need for the second scan*/
         if (!firstRunError) {
             PerformSecondScan(argv[i]);

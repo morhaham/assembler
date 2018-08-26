@@ -19,7 +19,7 @@ fileRep* OpenFile(char *fileName, char *mode) {
 }
 
 void Read(fileRep *fileInfo) {
-    if( fgets (fileInfo->buffer, LINE_SIZE, fileInfo->fd) == NULL && fileInfo->buffer[0] != '\0') {
+    if( fgets ((fileInfo)->buffer, LINE_SIZE, (fileInfo)->fd) == NULL && (fileInfo)->buffer[0] != '\0') {
         perror("Error reading from a file");
         exit(-1);
     }
