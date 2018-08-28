@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "DataStructures.h"
 #include "FirstPhase.h"
-#include "SecondScan.h"
+#include "SecondPhase.h"
 #include "Shared.h"
 #include "File.h"
 
