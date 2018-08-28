@@ -1,7 +1,7 @@
 #ifndef OPENUTASK14_ASSEMBLYRELATIVEDS_H
 #define OPENUTASK14_ASSEMBLYRELATIVEDS_H
 
-#include "HashTabel.h"
+#include "HashTable.h"
 #include "File.h"
 
 #define LINE_SIZE 80

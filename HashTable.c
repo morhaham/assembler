@@ -1,4 +1,4 @@
-#include "HashTabel.h"
+#include "HashTable.h"
 
 
 /* Create a new hashtable. */
