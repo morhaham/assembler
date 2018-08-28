@@ -79,14 +79,13 @@ int is_data_type_constant(char *data) {
         return 0;
     }
     lastIndex = firstIndex;
-    while (data[lastIndex] != SPACE && data[lastIndex] != TAB &&
-           data[lastIndex] != NULL_CHAR && data[lastIndex] != NEW_LINE){
+    while (!isSpace(data[lastIndex])&&
+           data[lastIndex] != NULL_CHAR){
         lastIndex++;
     }
 
     memset(temp, NULL_CHAR, LINE_SIZE);
-    if (data[lastIndex] == SPACE || data[lastIndex] == TAB ||
-        data[lastIndex] == NEW_LINE) {
+    if (isSpace(data[lastIndex])) {
         strncpy(temp, &data[firstIndex], lastIndex - 1 - firstIndex + 1);
     } else{
         strncpy(temp, &data[firstIndex], lastIndex - firstIndex + 1);
@@ -237,8 +236,8 @@ void ProcessCommand(char *arr, int firstIndex, char *commandName) {
 
         /*process the next element*/
         while (nextIndex != -1 && nextIndex != LINE_SIZE) {
-            if (arr[nextIndex] != SPACE && arr[nextIndex] != TAB &&
-                arr[nextIndex] != COMMA && arr[nextIndex] != NEW_LINE
+            if (!isSpace(arr[nextIndex])&&
+                arr[nextIndex] != COMMA
                 && arr[nextIndex] != OPEN_BRACKET && arr[nextIndex] != CLOSE_BRACKET) {
                 nextIndex++;
                 continue;
@@ -518,9 +517,7 @@ int HandleEntAndExtInstructionCase(int currentIndex, char* temp){
     firstIndex = skip_spaces(file->buffer, currentIndex);
     secondIndex = firstIndex;
 
-    while (file->buffer[secondIndex]!= SPACE &&
-           file->buffer[secondIndex] != TAB &&
-           file->buffer[secondIndex] != NEW_LINE) {
+    while (!isSpace(file->buffer[secondIndex])) {
         secondIndex++;
     }
 
